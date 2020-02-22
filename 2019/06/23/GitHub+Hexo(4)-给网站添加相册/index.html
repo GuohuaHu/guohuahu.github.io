@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+
+<script src="/js/src/photoswipe.min.js?v="></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="突发奇想，想做个相册。just do it!">
+<meta name="keywords" content="hexo,github,搭建网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub+Hexo(4)-添加相册功能（最简单的添加相册的方式）">
+<meta property="og:url" content="http://huguohua.cn/2019/06/23/GitHub+Hexo(4)-给网站添加相册/index.html">
+<meta property="og:site_name" content="Guohua Hu">
+<meta property="og:description" content="突发奇想，想做个相册。just do it!">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-11T18:24:14.211Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub+Hexo(4)-添加相册功能（最简单的添加相册的方式）">
+<meta name="twitter:description" content="突发奇想，想做个相册。just do it!">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://huguohua.cn/2019/06/23/GitHub+Hexo(4)-给网站添加相册/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GitHub+Hexo(4)-添加相册功能（最简单的添加相册的方式） | Guohua Hu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Guohua Hu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Connecting the world</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-hexo">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/hexo" rel="section"><i class="menu-item-icon fa fa-fw fa-node-js"></i> <br>Hexo</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sharing-resources">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/sharing" rel="section"><i class="menu-item-icon fa fa-fw fa-node-js"></i> <br>资源共享</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-reading">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/reading" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-essay">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/essay" rel="section"><i class="menu-item-icon fa fa-fw fa-file"></i> <br>随笔</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-photos">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i> <br>相册</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huguohua.cn/2019/06/23/GitHub+Hexo(4)-给网站添加相册/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guohua Hu">
+      <meta itemprop="description" content="technology, academic & interests">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guohua Hu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitHub+Hexo(4)-添加相册功能（最简单的添加相册的方式）
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-23 00:00:07" itemprop="dateCreated datePublished" datetime="2019-06-23T00:00:07+08:00">2019-06-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-12 02:24:14" itemprop="dateModified" datetime="2019-07-12T02:24:14+08:00">2019-07-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/23/GitHub+Hexo(4)-给网站添加相册/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/23/GitHub+Hexo(4)-给网站添加相册/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>突发奇想，想做个相册。just do it!</p>
+<p>网上有太多的添加相册的教程，我看了一天最后经过挑选以后开始实践，最后发现居然选的是一条hard模式。经过填坑以后，把更为简洁的路线给抽取出来。本教程利用<strong>新建hexo页面</strong>和<strong>加载github仓库的照片</strong>为例。基本步骤包括以下两块：一是构建github相册源，二是新建photo的页面。</p>
+<p>理论上讲这个教程也适用于七牛云、腾讯云、阿里云等</p>
+<h1 id="构建Github测试相册源"><a href="#构建Github测试相册源" class="headerlink" title="构建Github测试相册源"></a><center>构建Github测试相册源</center></h1><p>由于构建完整的相册源需要多个步骤，因此这里先构建一个相册源来测试</p>
+<h2 id="相册源的选择。"><a href="#相册源的选择。" class="headerlink" title="相册源的选择。"></a>相册源的选择。</h2><ol>
+<li><strong>本地存储</strong>：方便！但是流量和速度可能有影响，本地生成静态博客速度比价慢，不建议。</li>
+<li><strong>github存储</strong>：推荐！免费，也不复杂，流量和速度可以接受。</li>
+<li><strong>第三方云存储</strong>：不太会用（七牛云、腾讯云、阿里云.如果有想法可以选择其他,<a href="https://www.bug2048.com/work20181011/" target="_blank" rel="noopener">对比三种云存储</a>）</li>
+</ol>
+<h2 id="在github中新建仓库Blog-Album，"><a href="#在github中新建仓库Blog-Album，" class="headerlink" title="在github中新建仓库Blog_Album，"></a>在github中新建仓库Blog_Album，</h2><ol>
+<li><p>放入两个文件夹,在两个文件各放入一张照片，分别是原图和缩略图。</p>
+</li>
+<li><p>文件名类似于<code>2013-07-25_描述.jpg</code></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>文件夹</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>photos</td>
+<td>原图</td>
+</tr>
+<tr>
+<td>2</td>
+<td>min_photos</td>
+<td>缩略图</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h1 id="添加相册页面"><a href="#添加相册页面" class="headerlink" title="添加相册页面"></a><center>添加相册页面</center></h1><p>目前掌握的就是<strong>新建photo页面</strong>，加载js动态生成html页面，其他的暂时不懂。</p>
+<h2 id="添加photo配置文件并修改"><a href="#添加photo配置文件并修改" class="headerlink" title="添加photo配置文件并修改"></a>添加photo配置文件并修改</h2><ol>
+<li><p>在yourBlog\source\下添加photos文件夹，然后放入以下文件</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>文件</th>
+<th>类别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>index.md</td>
+<td>md</td>
+<td>photo页面文件（动态）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>photo.js</td>
+<td>js</td>
+<td>读取数据</td>
+</tr>
+<tr>
+<td>3</td>
+<td>data.json</td>
+<td>json</td>
+<td>数据文件</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ins.css</td>
+<td>css</td>
+<td>样式配置1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>photoswipe.css</td>
+<td>css</td>
+<td>样式配置2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>assets</td>
+<td>文件夹</td>
+<td>空缩略图</td>
+</tr>
+<tr>
+<td>7</td>
+<td>default-skin</td>
+<td>文件夹</td>
+<td>样式配置3</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="2">
+<li><p>修改photo配置文件<code>index.md</code></p>
+<p>替换以下链接为你的博客域名</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://huguohua.cn/"</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改photo配置文件<code>photo\.js</code></p>
+<p>将第120行左右修改为自己的相册源路径</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var minSrc = 'https://raw.githubusercontent.com/guohuahu/Blog_Album/master/min_photos/' + data.link[i];</span><br><span class="line">var src = 'https://raw.githubusercontent.com/guohuahu/Blog_Album/master/photos/' + data.link[i];</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="添加主题js文件并修改"><a href="#添加主题js文件并修改" class="headerlink" title="添加主题js文件并修改"></a>添加主题js文件并修改</h2><ol>
+<li><p>在yourBlog/themes/next7.0.0/source/js/src下放入（如果没有scr文件夹，可以新建）</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>文件</th>
+<th>类别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>photoswipe.min.js</td>
+<td>js</td>
+<td>图片浏览插件</td>
+</tr>
+<tr>
+<td>2</td>
+<td>photoswipe-ui-default.min.js</td>
+<td>js</td>
+<td>图片浏览插件</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>修改post-details.swig</p>
+<p>在 ‘yourBlog/themes/next7.0.0/layout/_scripts/pages/post-details.swig’文件中添加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123; url_for(theme.js) &#125;&#125;/src/photoswipe.min.js?v=&#123;&#123; theme.version &#125;&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123; url_for(theme.js) &#125;&#125;/src/photoswipe-ui-default.min.js?v=&#123;&#123; theme.version &#125;&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改_layout.swig</p>
+<p>在’yourBlog/themes/next7.0.0/layout/_layout.swig’文件中，</p>
+<p><code>&lt;head&gt;</code>标签以前添加(注意是html标签内，head标签以前)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&#123;&#123; url_for(theme.js) &#125;&#125;/src/photoswipe.min.js?v=&#123;&#123; theme.version &#125;&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&#123;&#123; url_for(theme.js) &#125;&#125;/src/photoswipe-ui-default.min.js?v=&#123;&#123; theme.version &#125;&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;body&gt;</code>标签内部添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.type === "photos" %&#125;</span><br><span class="line"><span class="comment">&lt;!-- Root element of PhotoSwipe. Must have class pswp. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp"</span> <span class="attr">tabindex</span>=<span class="string">"-1"</span> <span class="attr">role</span>=<span class="string">"dialog"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__bg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__scroll-wrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__container"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__ui pswp__ui--hidden"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__top-bar"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__counter"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"pswp__button pswp__button--close"</span> <span class="attr">title</span>=<span class="string">"Close (Esc)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"pswp__button pswp__button--share"</span> <span class="attr">title</span>=<span class="string">"Share"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"pswp__button pswp__button--fs"</span> <span class="attr">title</span>=<span class="string">"Toggle fullscreen"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"pswp__button pswp__button--zoom"</span> <span class="attr">title</span>=<span class="string">"Zoom in/out"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- element will get class pswp__preloader--active when preloader is running --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__preloader"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__preloader__icn"</span>&gt;</span></span><br><span class="line">                      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__preloader__cut"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__preloader__donut"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__share-modal pswp__share-modal--hidden pswp__single-tap"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__share-tooltip"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"pswp__button pswp__button--arrow--left"</span> <span class="attr">title</span>=<span class="string">"Previous (arrow left)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"pswp__button pswp__button--arrow--right"</span> <span class="attr">title</span>=<span class="string">"Next (arrow right)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__caption"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pswp__caption__center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="可能遇到的错误"><a href="#可能遇到的错误" class="headerlink" title="可能遇到的错误"></a>可能遇到的错误</h2><ol>
+<li><p>图片总是加载中</p>
+<p>这个错误是弄了最久的，而且超出了我的能力范围。当时弄了很久搞不定，就找了淘宝上的小哥<code>hj不死少年</code>（店铺<code>hojun的万事屋</code>）帮忙排查。那天他远程操作的时候网络太卡，折腾了1-2个小时到了凌晨。最后他也熬不住了，跟我说懒得搞了。</p>
+<p>但是他指出问题所在:<code>与安装了aplayer插件冲突</code>有关! Aplayer会自动添加一段代码到html头部，导致生成的html报错。要不卸载这个播放器插件，要不更换一个简单点的相册。</p>
+<p>具体原因是<br><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#安装" target="_blank" rel="noopener">官方说明</a>如下：</p>
+<blockquote>
+<p>使用 after_post_render 会有重复载入 APlayer.js 的情况（例如当一个页面中存在多篇博客时），以及一些非文章页面将无法使用本插件。</p>
+</blockquote>
+<blockquote>
+<p>如果想完全解决这个问题，用户可能需要自己在主题文件中手动加入 Aplayer.js 与 Meting.js，同时关闭插件的自动脚本插入功能：　　</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  asset_inject: false</span><br></pre></td></tr></table></figure>
+
+<p>在hexo配置文件里有了这个设置，基本上就没问题了。</p>
+</li>
+</ol>
+<h1 id="构建完整的Github相册源"><a href="#构建完整的Github相册源" class="headerlink" title="构建完整的Github相册源"></a><center>构建完整的Github相册源</center></h1><p>在第一步构建测试相册源当中，其实已经搭建了相册源的框架。这部分将介绍如何批量处理文件，包括文件的重命名、批量制作缩略图、生成data.json和上传到github.</p>
+<h2 id="文件重命名"><a href="#文件重命名" class="headerlink" title="文件重命名"></a>文件重命名</h2><ol>
+<li>有很多文件重命名的工具可以用，我这里使用lightroom来实现。</li>
+<li>将所有文件重命名为<code>2013-07-25_描述.jpg</code>这种形式</li>
+</ol>
+<h2 id="批量制作缩略图"><a href="#批量制作缩略图" class="headerlink" title="批量制作缩略图"></a>批量制作缩略图</h2><ol>
+<li>理论上页可以直接使用lightroom批量导出尺寸较小的图</li>
+</ol>
+<h2 id="生成data-json"><a href="#生成data-json" class="headerlink" title="生成data.json"></a>生成data.json</h2><ol>
+<li><p>原理：运行make-json.py，将自动读入photo文件夹中的所有图片，然后生成data.json。</p>
+</li>
+<li><p>注意修改文件末尾修改路径参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    handle_photo(<span class="string">'Blog_Album/photos/'</span>, <span class="string">'E:/Blog/source/photos/data.json'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>前面的路径是photo文件夹路径，后面路径是data.json路径</p>
+</li>
+<li><p>由于python对中文支持不好，建议所有的路径都不要用中文。</p>
+</li>
+</ol>
+<h2 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h2><p>假设处理好的图片都已经放在Blog_Album\min_photos和Blog_Album\photos文件夹下了</p>
+<ol>
+<li><p>在Blog_Album下，打开git bash，然后运行git clone下载对应仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/GuohuaHu/Blog_Album.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化本地git</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加所有文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交所有文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m "提一次提交"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>链接仓库（第一次需要）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:***/***.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉取仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送到仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>注意：如果没有权限，还需要设置ssh-keygen<br>参考：<a href="https://blog.csdn.net/zamamiro/article/details/70172900" target="_blank" rel="noopener">https://blog.csdn.net/zamamiro/article/details/70172900</a></p>
+<p>到这里，本教程就结束了！</p>
+<h1 id="使用python批量处理图片的教程和坑"><a href="#使用python批量处理图片的教程和坑" class="headerlink" title="使用python批量处理图片的教程和坑"></a><center>使用python批量处理图片的教程和坑</center></h1><p>这部分为什么单独拿出来？网上提供了处理图片的python代码，但是对于没有配置好python环境的人来讲简直步步是坑。</p>
+<p>  其实批量处理图片就两步，</p>
+<ul>
+<li><p>第一步<code>运行compress.py生成缩略图</code>，</p>
+</li>
+<li><p>第二步<code>运行make-json.py生成data.json</code></p>
+<p>但是配置python环境还是比较费事的。</p>
+</li>
+</ul>
+<h2 id="python和pip配置"><a href="#python和pip配置" class="headerlink" title="python和pip配置"></a>python和pip配置</h2><ol>
+<li><p>检查python安装</p>
+<p>安装python以后，在cmd中输入以下命令，如果返回正常路径表示ok。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">where python</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后设置系统环境变量包含python路径：</p>
+<p>在高级系统设置–环境变量–系统变量中找到path双击，添加python所在的路径（也就是python.exe所在的路径）,对我个人而言是，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Python27\ArcGIS10.4</span><br><span class="line">C:\Python27\ArcGISx6410.4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证python安装：</p>
+<p>设置完环境变量以后，重启cmd使设置生效，然后在cmd中输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">where python</span><br><span class="line">python --verison</span><br></pre></td></tr></table></figure>
+
+<p>可返回路径、版本号。</p>
+</li>
+<li><p>检查pip</p>
+<p>搜索电脑里的pip.exe所在路径，然后添加到系统环境变量。对我个人而言是:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Python27\ArcGIS10.4\Scripts</span><br><span class="line">C:\Python27\ArcGISx6410.4\Scripts</span><br></pre></td></tr></table></figure>
+
+<p>命令行中输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --verison</span><br></pre></td></tr></table></figure>
+
+<p>可以得到版本号。<br>(<a href="https://blog.csdn.net/BetterFate/article/details/71123976" target="_blank" rel="noopener">https://blog.csdn.net/BetterFate/article/details/71123976</a>)</p>
+</li>
+</ol>
+<h2 id="如何用pip安装pillow库和opencv-python库？"><a href="#如何用pip安装pillow库和opencv-python库？" class="headerlink" title="如何用pip安装pillow库和opencv-python库？"></a>如何用pip安装pillow库和opencv-python库？</h2><ol>
+<li><p>pillow库是啥？</p>
+<p>一个python的图像处理库，它是另一个图像处理库PIL的一个分支，但是两个只能装一个。</p>
+</li>
+<li><p>pillow库怎么安装？</p>
+<p>命令行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Pillow</span><br></pre></td></tr></table></figure>
+
+<p>可添加参数（–target=d:\xxx\xxx），例如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Pillow --target=C:\Python27\Pillow</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证安装是否成功。<br>重新输入安装命令，见到成功安装提示和安装路径即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Pillow</span><br></pre></td></tr></table></figure>
+
+<p>或者输入python，进入python环境，然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#python</span><br><span class="line">from PIL import Image</span><br></pre></td></tr></table></figure>
+
+<p>导入成功的话也说明安装成功</p>
+</li>
+<li><p>同样的安装opencv-python</p>
+<p>命令行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
+
+<p>注意：安装opencv-python会重复安装numpy导致报错，所以需要卸载完所有的numpy，然后重新安装numpy<br> (参考：<a href="https://blog.csdn.net/qq_38228254/article/details/88880189" target="_blank" rel="noopener">https://blog.csdn.net/qq_38228254/article/details/88880189</a>)</p>
+</li>
+<li><p>其他参考</p>
+<p>（<a href="https://blog.csdn.net/weixin_44345862/article/details/87003478）" target="_blank" rel="noopener">https://blog.csdn.net/weixin_44345862/article/details/87003478）</a><br>（<a href="https://blog.csdn.net/u014513863/article/details/83118176）" target="_blank" rel="noopener">https://blog.csdn.net/u014513863/article/details/83118176）</a></p>
+</li>
+</ol>
+<h2 id="运行py文件的方式"><a href="#运行py文件的方式" class="headerlink" title="运行py文件的方式"></a>运行py文件的方式</h2><p>几种运行方式，</p>
+<ol>
+<li><p>双击运行</p>
+<p>(需要提前制定打开方式，比如制定到python.exe，如果安装了其他IDE，可能双击时会被其他软件打开)</p>
+</li>
+<li><p>拖到命令行运行，在cmd环境下输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python compress.py</span><br></pre></td></tr></table></figure>
+
+<p>（注意：compress.py代码中使用相对路径读取文件是，所以需要cd到有photos和min_photos的文件夹下）</p>
+</li>
+<li><p>python shell 运行</p>
+<p>（发现无法导入PIL模块）</p>
+</li>
+<li><p><strong>pycharm运行(推荐)</strong></p>
+<p>（同样发现无法导入PIL模块，只有在python全新配置python和pillow环境的才能正常运行）</p>
+</li>
+</ol>
+<h1 id="相册显示优化"><a href="#相册显示优化" class="headerlink" title="相册显示优化"></a><center>相册显示优化</center></h1><h2 id="如何设置缩略图大小和间距？"><a href="#如何设置缩略图大小和间距？" class="headerlink" title="如何设置缩略图大小和间距？"></a>如何设置缩略图大小和间距？</h2><ol>
+<li><p>在ins.css文件中修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.instagram .thumb &#123;</span><br><span class="line">	width: 20%;	</span><br><span class="line">	padding-bottom: 20%;	</span><br><span class="line">	margin: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="如何自动获取缩略图大小"><a href="#如何自动获取缩略图大小" class="headerlink" title="如何自动获取缩略图大小"></a>如何自动获取缩略图大小</h2><ol>
+<li><p>添加size变量</p>
+</li>
+<li><p>设置data-size=size<br>修改后如图所示</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var size = data.size[i];</span><br><span class="line">liTmpl += '<span class="tag">&lt;<span class="name">figure</span> <span class="attr">class</span>=<span class="string">"thumb"</span> <span class="attr">itemprop</span>=<span class="string">"associatedMedia"</span> <span class="attr">itemscope</span>=<span class="string">""</span> <span class="attr">itemtype</span>=<span class="string">"http://schema.org/ImageObject"</span>&gt;</span>\</span><br><span class="line">                  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"' + src + '"</span> <span class="attr">itemprop</span>=<span class="string">"contentUrl"</span> <span class="attr">data-size</span>=<span class="string">"' + size + '"</span> <span class="attr">data-type</span>=<span class="string">"' + type + '"</span> <span class="attr">data-target</span>=<span class="string">"' + target + '"</span>&gt;</span>\</span><br><span class="line">                    <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"reward-img"</span> <span class="attr">data-type</span>=<span class="string">"' + type + '"</span> <span class="attr">data-src</span>=<span class="string">"' + minSrc + '"</span> <span class="attr">src</span>=<span class="string">"./assets/empty.png"</span> <span class="attr">itemprop</span>=<span class="string">"thumbnail"</span> <span class="attr">onload</span>=<span class="string">"lzld(this)"</span>&gt;</span>\</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="如何将日期显示补齐零："><a href="#如何将日期显示补齐零：" class="headerlink" title="如何将日期显示补齐零："></a>如何将日期显示补齐零：</h2><ol>
+<li><p>在photo.js文件中113行修改日期显示</p>
+<p>假设data.month是月份数字，可利用(‘00’ + data.month).slice(-2)补齐零</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulTmpl = ulTmpl + '<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"archives album"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"year"</span>&gt;</span>' + data.year + '-' + ('00' + data.month).slice(-2) +</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://hushhw.cn/posts/tool/6ff333ed.html" target="_blank" rel="noopener">https://hushhw.cn/posts/tool/6ff333ed.html</a></li>
+<li><a href="https://foreti.me/2017/12/31/hexo-next-personal/#album" target="_blank" rel="noopener">https://foreti.me/2017/12/31/hexo-next-personal/#album</a>  </li>
+<li><a href="http://cherryzzangg.site/2019/02/10/%20HEXO博客搭建相册/" target="_blank" rel="noopener">http://cherryzzangg.site/2019/02/10/%20HEXO博客搭建相册/</a>  </li>
+<li><a href="https://muyulong.tk/photos/" target="_blank" rel="noopener">https://muyulong.tk/photos/</a></li>
+</ol>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Guohua Hu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://huguohua.cn/2019/06/23/GitHub+Hexo(4)-给网站添加相册/" title="GitHub+Hexo(4)-添加相册功能（最简单的添加相册的方式）">http://huguohua.cn/2019/06/23/GitHub+Hexo(4)-给网站添加相册/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/搭建网站/" rel="tag"># 搭建网站</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/23/GitHub+Hexo(5)-文章多分类与标签/" rel="next" title="GitHub+Hexo(5)-文章多分类与标签">
+                <i class="fa fa-chevron-left"></i> GitHub+Hexo(5)-文章多分类与标签
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/23/GitHub+Hexo(3)-给网站添加评论功能/" rel="prev" title="GitHub+Hexo(3)-给网站添加评论功能">
+                GitHub+Hexo(3)-给网站添加评论功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Guohua Hu">
+            
+              <p class="site-author-name" itemprop="name">Guohua Hu</p>
+              <div class="site-description motion-element" itemprop="description">technology, academic & interests</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+		  
+		  <center>-----------------------------		  		  
+		   
+		  
+		  
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/guohuahu" title="GitHub &rarr; https://github.com/guohuahu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:huguohua188@gmail.com" title="E-Mail &rarr; mailto:huguohua188@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/hu.g.hua" title="FB Page &rarr; https://www.facebook.com/hu.g.hua" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/huguohua.cn" title="Instagram &rarr; https://instagram.com/huguohua.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+		  
+		  </center>
+
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+		 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建Github测试相册源"><span class="nav-number">2.</span> <span class="nav-text">构建Github测试相册源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相册源的选择。"><span class="nav-number">2.1.</span> <span class="nav-text">相册源的选择。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在github中新建仓库Blog-Album，"><span class="nav-number">2.2.</span> <span class="nav-text">在github中新建仓库Blog_Album，</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加相册页面"><span class="nav-number">3.</span> <span class="nav-text">添加相册页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加photo配置文件并修改"><span class="nav-number">3.1.</span> <span class="nav-text">添加photo配置文件并修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加主题js文件并修改"><span class="nav-number">3.2.</span> <span class="nav-text">添加主题js文件并修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的错误"><span class="nav-number">3.3.</span> <span class="nav-text">可能遇到的错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建完整的Github相册源"><span class="nav-number">4.</span> <span class="nav-text">构建完整的Github相册源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件重命名"><span class="nav-number">4.1.</span> <span class="nav-text">文件重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量制作缩略图"><span class="nav-number">4.2.</span> <span class="nav-text">批量制作缩略图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成data-json"><span class="nav-number">4.3.</span> <span class="nav-text">生成data.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传到github"><span class="nav-number">4.4.</span> <span class="nav-text">上传到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用python批量处理图片的教程和坑"><span class="nav-number">5.</span> <span class="nav-text">使用python批量处理图片的教程和坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python和pip配置"><span class="nav-number">5.1.</span> <span class="nav-text">python和pip配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何用pip安装pillow库和opencv-python库？"><span class="nav-number">5.2.</span> <span class="nav-text">如何用pip安装pillow库和opencv-python库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行py文件的方式"><span class="nav-number">5.3.</span> <span class="nav-text">运行py文件的方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相册显示优化"><span class="nav-number">6.</span> <span class="nav-text">相册显示优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设置缩略图大小和间距？"><span class="nav-number">6.1.</span> <span class="nav-text">如何设置缩略图大小和间距？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何自动获取缩略图大小"><span class="nav-number">6.2.</span> <span class="nav-text">如何自动获取缩略图大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何将日期显示补齐零："><span class="nav-number">6.3.</span> <span class="nav-text">如何将日期显示补齐零：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guohua Hu</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv" < span>人</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_pv"><br>总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
+
+
+
+  
+
+  
+</span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fastclick@1/lib/fastclick.min.js"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/scrollspy.js?v=7.1.2"></script>
+<script type="text/javascript" src="/js/post-details.js?v=7.1.2"></script>
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v="></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'InJI4pH3TOjUNAA9X7Ffgmor-gzGzoHsz',
+    appKey: 'vNPjxgOti30iwmNe2zYu4gQ7',
+    placeholder: '留下昵称和邮箱再回复能收到提醒哦！',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
