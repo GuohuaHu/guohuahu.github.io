@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+
+<script src="/js/src/photoswipe.min.js?v="></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="以前我经常想一个问题，能不能直接在手机上写博客，然后发布到自己的 github.io。这样的功能在一些成熟的博客平台上并不稀奇，微信公众号、知乎之类的平台，本身就把编辑、存储和发布全部做好了，用户写完以后点一下发布，剩下的事情不用管。 但是 GitHub 不一样。GitHub 首先是一个代码托管平台，它可以保存 Markdown，也可以通过 GitHub Pages 展示静态网页，但是中间还有一步">
+<meta name="keywords" content="hexo,github,AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub+Hexo(8)-AI时代的Hexo博客新路径">
+<meta property="og:url" content="http://huguohua.cn/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/index.html">
+<meta property="og:site_name" content="Guohua Hu">
+<meta property="og:description" content="以前我经常想一个问题，能不能直接在手机上写博客，然后发布到自己的 github.io。这样的功能在一些成熟的博客平台上并不稀奇，微信公众号、知乎之类的平台，本身就把编辑、存储和发布全部做好了，用户写完以后点一下发布，剩下的事情不用管。 但是 GitHub 不一样。GitHub 首先是一个代码托管平台，它可以保存 Markdown，也可以通过 GitHub Pages 展示静态网页，但是中间还有一步">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-10-01T18:58:50.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub+Hexo(8)-AI时代的Hexo博客新路径">
+<meta name="twitter:description" content="以前我经常想一个问题，能不能直接在手机上写博客，然后发布到自己的 github.io。这样的功能在一些成熟的博客平台上并不稀奇，微信公众号、知乎之类的平台，本身就把编辑、存储和发布全部做好了，用户写完以后点一下发布，剩下的事情不用管。 但是 GitHub 不一样。GitHub 首先是一个代码托管平台，它可以保存 Markdown，也可以通过 GitHub Pages 展示静态网页，但是中间还有一步">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://huguohua.cn/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GitHub+Hexo(8)-AI时代的Hexo博客新路径 | Guohua Hu</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Guohua Hu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Connecting the world</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-hexo">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/hexo" rel="section"><i class="menu-item-icon fa fa-fw fa-github"></i> <br>网站技术</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sharing-resources">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/sharing" rel="section"><i class="menu-item-icon fa fa-fw fa-briefcase"></i> <br>资源共享</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-reading">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/reading" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书笔记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-finance">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/finance" rel="section"><i class="menu-item-icon fa fa-fw fa-balance-scale"></i> <br>财经故事</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-personal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/personal" rel="section"><i class="menu-item-icon fa fa-fw fa-file"></i> <br>个人感想</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-photos">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-camera"></i> <br>相册</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huguohua.cn/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guohua Hu">
+      <meta itemprop="description" content="technology, academic & interests">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guohua Hu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitHub+Hexo(8)-AI时代的Hexo博客新路径
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2026-10-02 00:00:00" itemprop="dateCreated datePublished" datetime="2026-10-02T00:00:00+00:00">2026-10-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2026-10-01 18:58:50" itemprop="dateModified" datetime="2026-10-01T18:58:50+00:00">2026-10-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="两个GitHub仓库"><a href="#两个GitHub仓库" class="headerlink" title="两个GitHub仓库"></a>两个GitHub仓库</h2><p>原来的博客里，最重要的是 <code>guohuahu.github.io</code> 这个仓库，里面放的是 Hexo 生成以后的网站文件，比如 <code>index.html</code>、CSS、JS、图片以及按年份生成的文章页面。GitHub Pages 读取这些文件，然后把它们作为网站展示出来。需要注意的是，这个仓库里并没有真正的博客源码，Markdown、Hexo 配置和主题以前都在我的电脑上。</p>
+<p>因此这次我又建了一个私有仓库 <code>blog-source</code>，把完整的 Hexo 项目放进去，包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">source/</span><br><span class="line">themes/</span><br><span class="line">scaffolds/</span><br><span class="line">_config.yml</span><br><span class="line">package.json</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>这样两个仓库的作用就分开了。<code>blog-source</code> 保存源码，<code>guohuahu.github.io</code> 保存生成结果。整个过程可以简化成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">blog-source</span><br><span class="line">    ↓</span><br><span class="line">GitHub Actions</span><br><span class="line">    ↓</span><br><span class="line">Hexo</span><br><span class="line">    ↓</span><br><span class="line">生成 public</span><br><span class="line">    ↓</span><br><span class="line">guohuahu.github.io</span><br><span class="line">    ↓</span><br><span class="line">GitHub Pages</span><br></pre></td></tr></table></figure>
+
+<p>为什么这样可以？因为 Hexo 和 GitHub Pages 本来就是两个独立的环节。Hexo 负责把 Markdown、主题和配置生成 HTML，而 GitHub Pages 只负责把这些 HTML 作为网页展示出来。以前中间执行 Hexo 的地方是自己的电脑，现在只是换成了 GitHub Actions。</p>
+<p>这样一来，<code>guohuahu.github.io</code> 这个仓库平时就基本不用手工去改。真正需要维护的是 <code>blog-source</code>。文章、主题、配置和依赖都在这里，网站仓库则更像是生成后的结果。</p>
+<h2 id="GitHub-Actions做了什么"><a href="#GitHub-Actions做了什么" class="headerlink" title="GitHub Actions做了什么"></a>GitHub Actions做了什么</h2><p>每当 <code>blog-source</code> 有新的提交，GitHub Actions 就会启动一个临时的运行环境，然后按照预先写好的流程完成构建。大概就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">下载 blog-source</span><br><span class="line">       ↓</span><br><span class="line">安装 Node.js</span><br><span class="line">       ↓</span><br><span class="line">npm install</span><br><span class="line">       ↓</span><br><span class="line">hexo generate</span><br><span class="line">       ↓</span><br><span class="line">检查 public</span><br><span class="line">       ↓</span><br><span class="line">更新 guohuahu.github.io</span><br></pre></td></tr></table></figure>
+
+<p>做完以后，这个临时环境就可以结束，下次有新的提交再重新运行。因此本地电脑不需要一直开着，也不需要每次都手工去执行 Hexo 命令。</p>
+<p>如果在电脑上写博客，就正常修改 <code>source/_posts/</code> 下面的 Markdown，然后提交到 <code>blog-source</code>。如果以后在手机上有合适的 GitHub 编辑工具，同样可以直接改这个仓库。如果通过 ChatGPT 修改，原理也没有区别，最后还是修改同一个源码仓库。</p>
+<p>整个流程也就变成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">电脑 ─────┐</span><br><span class="line">手机 ─────┼──&gt; blog-source</span><br><span class="line">ChatGPT ──┘         ↓</span><br><span class="line">               GitHub Actions</span><br><span class="line">                    ↓</span><br><span class="line">                   Hexo</span><br><span class="line">                    ↓</span><br><span class="line">             guohuahu.github.io</span><br><span class="line">                    ↓</span><br><span class="line">                  网站</span><br></pre></td></tr></table></figure>
+
+<p>对用户来说，需要操心的仍然是文章内容、主题、配置和依赖版本。至于什么时候执行 <code>hexo g</code>、生成了多少个 HTML、这些文件怎么提交到网站仓库，都可以交给 Actions。</p>
+<h2 id="为什么源码仓库最好是私有的"><a href="#为什么源码仓库最好是私有的" class="headerlink" title="为什么源码仓库最好是私有的"></a>为什么源码仓库最好是私有的</h2><p>这里还有一个问题，为什么不直接把所有东西都放到 <code>guohuahu.github.io</code> 里面？当然也可以，但 Hexo 的源码和最终的网站文件用途并不一样。</p>
+<p>网站仓库本来就是公开的，因为 HTML、CSS、JS 和图片本身就是给别人访问的。源码仓库除了 Markdown，还包括主题配置、部署配置、插件版本以及一些历史文件。这些内容不一定需要公开，尤其是一个用了很多年的老项目，里面很容易留下以前的脚本、备份甚至密钥。</p>
+<p>我这个博客在迁移的时候就发现过一些历史遗留文件，所以顺便做了一次整理。最后保留：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blog-source            私有</span><br><span class="line">guohuahu.github.io     公开</span><br></pre></td></tr></table></figure>
+
+<p>公开仓库只负责展示，私有仓库负责维护，这样也比较清楚。</p>
+<h2 id="为什么Actions显示成功，网站却是空的？"><a href="#为什么Actions显示成功，网站却是空的？" class="headerlink" title="为什么Actions显示成功，网站却是空的？"></a>为什么Actions显示成功，网站却是空的？</h2><p>这次迁移过程中最麻烦的问题倒不是 GitHub，而是 Node.js。第一次在 GitHub Actions 上运行 Hexo 的时候，从日志上看完全正常，<code>index.html</code>、<code>about/index.html</code> 等文件都显示已经生成，最后 Actions 也是绿色的 <code>success</code>。按道理讲，到这里网站应该已经生成成功了。</p>
+<p>但是文件推送到 <code>guohuahu.github.io</code> 以后，网站反而打不开。后来检查才发现，<code>index.html</code>、<code>CNAME</code>、<code>search.xml</code> 等文件虽然都存在，但是大小全部是 0 字节。也就是说，Hexo 告诉你“生成了”，但实际上只创建了文件名，内容并没有写进去。</p>
+<p>最后发现问题出在版本兼容。我的博客还在使用 Hexo 3.9.0，而一开始 GitHub Actions 配的是 Node.js 14。Hexo 社区以前就有人报告过 Node.js 14 下生成空 HTML 的问题（<a href="https://github.com/hexojs/hexo/issues/4257" target="_blank" rel="noopener">hexojs/hexo#4257</a>）。这次本地进一步检查以后，问题也落在旧版 Hexo 的生成缓存逻辑上，所以会出现日志正常、文件也有，但是内容为空的情况。</p>
+<p>把环境换回 Node.js 12 以后，生成恢复正常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">158 files generated</span><br><span class="line">69 个非空 HTML</span><br><span class="line">public 大约 9.6 MB</span><br></pre></td></tr></table></figure>
+
+<p>这也说明一个比较容易犯的错误：Actions 运行成功，不代表网站一定生成正确。自动部署最好不要只看命令有没有报错，还要检查结果本身。</p>
+<p>因此现在 Actions 里面又增加了几项检查，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">test</span> -s public/index.html</span><br><span class="line"><span class="built_in">test</span> -s public/about/index.html</span><br><span class="line"><span class="built_in">test</span> -s public/css/main.css</span><br><span class="line"><span class="built_in">test</span> -s public/CNAME</span><br></pre></td></tr></table></figure>
+
+<p>同时还会检查生成的 HTML 数量。只有这些都正常，才允许继续发布。</p>
+<h2 id="老博客要不要顺便升级？"><a href="#老博客要不要顺便升级？" class="headerlink" title="老博客要不要顺便升级？"></a>老博客要不要顺便升级？</h2><p>发现 Node.js 版本有问题以后，很容易想到，既然 Hexo 3.9.0 已经这么老了，是不是干脆把 Hexo、Node.js、主题和插件一起升级算了。</p>
+<p>后来没有这样做。原因也很简单，这个博客已经运行很多年，Hexo、NexT 主题、renderer 和各种插件之间已经形成了一套可以工作的组合。如果在迁移发布方式的同时，又把这些东西一起升级，一旦网站出现问题，很难判断到底是哪一层导致的。</p>
+<p>是 Actions 配错了？还是 Node.js 不兼容？还是 Hexo 本身改了？还是主题或者插件出了问题？这些问题混在一起以后，排查会很麻烦。</p>
+<p>所以对于这种已经稳定运行很多年的老项目，我觉得比较稳妥的办法是，先把原来的兼容环境搬过去。比如我这个项目，先固定在 Node.js 12，让 Hexo 3.9.0 正常运行。等新的发布流程稳定以后，如果还想升级，再单独在本地尝试。</p>
+<p>例如可以先在本地升级 Node.js、Hexo 和插件，然后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>把文章、图片、分类、搜索和主题都检查一遍。确认没有问题，再把 GitHub Actions 里的版本一起改掉。这样迁移和升级就是两件事，出了问题也容易判断原因。</p>
+<h2 id="自动发布不要每次重新建仓库"><a href="#自动发布不要每次重新建仓库" class="headerlink" title="自动发布不要每次重新建仓库"></a>自动发布不要每次重新建仓库</h2><p>这次还犯过另外一个错误。最早的自动发布方式比较直接，大概是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> public</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push --force</span><br></pre></td></tr></table></figure>
+
+<p>看起来好像没问题，反正 <code>public</code> 就是要发布的网站，重新建一个 Git 仓库然后覆盖远程就行了。</p>
+<p>但是这样做会把 <code>guohuahu.github.io</code> 原来的 Git 历史直接切断。每次发布网站，不应该相当于重新创建一个仓库，否则以前的提交关系都没有了，以后想回退也比较麻烦。</p>
+<p>后来改成先 clone 现有的网站仓库，再把新的 <code>public</code> 同步进去，然后正常 commit 和 push：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clone guohuahu.github.io</span><br><span class="line">        ↓</span><br><span class="line">用新的 public 更新里面的文件</span><br><span class="line">        ↓</span><br><span class="line">git commit</span><br><span class="line">        ↓</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>这样每次网站更新都有连续的提交历史，万一哪一天新的版本有问题，也能知道上一个正常版本是什么。</p>
+<h2 id="CNAME也有一个小问题"><a href="#CNAME也有一个小问题" class="headerlink" title="CNAME也有一个小问题"></a>CNAME也有一个小问题</h2><p>这个博客以前除了 <code>huguohua.cn</code>，还用过 Coding 的 Pages，所以历史的 <code>CNAME</code> 文件里面留下了两个地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">huguohua.cn</span><br><span class="line">huguohua.coding.me</span><br></pre></td></tr></table></figure>
+
+<p>平时没有动它的时候也没觉得有什么问题，重新部署以后 GitHub Pages 的自定义域名却出现了异常。最后把已经不用的旧地址删掉，只留下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">huguohua.cn</span><br></pre></td></tr></table></figure>
+
+<p>网站才重新恢复。</p>
+<p>这种问题单独拿出来看都很小，但是老项目就是这样。用了很多年以后，会留下各种当时有用、后来已经不用的配置。平时不动它的时候没有感觉，一旦重新部署，就很容易一起冒出来。</p>
+<h2 id="现在怎么发博客"><a href="#现在怎么发博客" class="headerlink" title="现在怎么发博客"></a>现在怎么发博客</h2><p>完成这些以后，再发一篇博客已经没有多少事情要做。如果在电脑上写，就直接修改 Markdown，然后提交到 <code>blog-source</code>；如果手机上修改，同样提交到这里；如果是和 ChatGPT 聊天的时候形成了一篇文章，也可以让 ChatGPT 去修改 GitHub 里的 Markdown。</p>
+<p>后面的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装环境</span><br><span class="line">生成网站</span><br><span class="line">检查文件</span><br><span class="line">提交网页</span><br><span class="line">更新 GitHub Pages</span><br></pre></td></tr></table></figure>
+
+<p>就不需要再手工执行了。</p>
+<p>这正是我以前想在手机上发 Hexo 博客时缺少的那一段。手机本身并没有突然变成一台可以方便运行 Hexo 的电脑，只是 Hexo 已经没有必要运行在手机或者自己的电脑上了。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这次折腾博客，开始只是想解决一个很小的问题：能不能不打开电脑，也可以发一篇 Hexo 博客。最后发现，有意思的地方已经不只是 Hexo 自动部署。</p>
+<p>OpenAI 的 ChatGPT 现在可以连接 GitHub、云盘、邮箱以及越来越多的云服务。以前操作电脑的时候，很多事情要求人准确地完成某一个步骤，然后才能进入下一步。路径可能并不复杂，但是少一个命令、改错一个文件、找错一个仓库，后面就进行不下去了。对于熟悉的人来说，这些都不是大问题，但是时间长了不用，同样还是要重新查一遍。</p>
+<p>现在 AI 开始参与这些过程以后，中间很多障碍可以被抹平。人仍然需要知道自己想做什么，也需要判断最后的结果是不是正确，但是很多具体的操作已经不一定需要自己记得那么清楚。以前必须非常精确地做到某一步，下一步才能继续，现在很多地方可以直接说明想做什么，再由 AI 帮忙去不同的服务里查文件、改内容、看运行结果、找错误。</p>
+<p>这次博客就是一个例子。Hexo 还是以前的 Hexo，GitHub 也还是以前的 GitHub，GitHub Pages 也没有什么变化，只是把这些服务连接起来以后，以前一直觉得比较麻烦的事情，现在变得顺了一些。</p>
+<p>也算是科技改变生活吧。</p>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Guohua Hu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://huguohua.cn/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/" title="GitHub+Hexo(8)-AI时代的Hexo博客新路径">http://huguohua.cn/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/02/22/读书有没有用？——春节有感/" rel="next" title="读书有没有用？——春节有感">
+                <i class="fa fa-chevron-left"></i> 读书有没有用？——春节有感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Guohua Hu">
+            
+              <p class="site-author-name" itemprop="name">Guohua Hu</p>
+              <div class="site-description motion-element" itemprop="description">technology, academic & interests</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+		  
+		  <center>-----------------------------		  		  
+		   
+		  
+		  
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/guohuahu" title="GitHub &rarr; https://github.com/guohuahu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:huguohua188@gmail.com" title="E-Mail &rarr; mailto:huguohua188@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.facebook.com/hu.g.hua" title="FB Page &rarr; https://www.facebook.com/hu.g.hua" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/huguohua.cn" title="Instagram &rarr; https://instagram.com/huguohua.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+		  
+		  </center>
+
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+		 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两个GitHub仓库"><span class="nav-number">1.</span> <span class="nav-text">两个GitHub仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Actions做了什么"><span class="nav-number">2.</span> <span class="nav-text">GitHub Actions做了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么源码仓库最好是私有的"><span class="nav-number">3.</span> <span class="nav-text">为什么源码仓库最好是私有的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么Actions显示成功，网站却是空的？"><span class="nav-number">4.</span> <span class="nav-text">为什么Actions显示成功，网站却是空的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#老博客要不要顺便升级？"><span class="nav-number">5.</span> <span class="nav-text">老博客要不要顺便升级？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动发布不要每次重新建仓库"><span class="nav-number">6.</span> <span class="nav-text">自动发布不要每次重新建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CNAME也有一个小问题"><span class="nav-number">7.</span> <span class="nav-text">CNAME也有一个小问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现在怎么发博客"><span class="nav-number">8.</span> <span class="nav-text">现在怎么发博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">9.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2026</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guohua Hu</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv" < span>人</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_pv"><br>总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
+
+
+
+  
+
+  
+</span></div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fastclick@1/lib/fastclick.min.js"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/scrollspy.js?v=7.1.2"></script>
+<script type="text/javascript" src="/js/post-details.js?v=7.1.2"></script>
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v="></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'InJI4pH3TOjUNAA9X7Ffgmor-gzGzoHsz',
+    appKey: 'vNPjxgOti30iwmNe2zYu4gQ7',
+    placeholder: '留下昵称和邮箱再回复能收到提醒哦！',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
