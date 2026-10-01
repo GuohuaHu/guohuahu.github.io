@@ -101,16 +101,18 @@
 
 
 
-  <meta name="description" content="technology, academic &amp; interests">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Guohua Hu">
-<meta property="og:url" content="http://huguohua.cn/archives/2019/06/index.html">
+  <meta name="description" content="上一篇把 Hexo 的发布方式改成了：源码统一放在私有的 blog-source，GitHub Actions 负责生成网页，再自动更新 guohuahu.github.io。这样以后，电脑、手机或者 ChatGPT 都可以作为博客的编辑入口。 新的问题也随之出现了。以前博客源码只在自己的电脑上，本地就是唯一版本；现在 ChatGPT 也可能直接修改 GitHub 上的源码，手机端以后也可能这么做">
+<meta name="keywords" content="hexo,github,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub+Hexo(9)-双入口博客的本地安全同步">
+<meta property="og:url" content="http://huguohua.cn/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/index.html">
 <meta property="og:site_name" content="Guohua Hu">
-<meta property="og:description" content="technology, academic &amp; interests">
+<meta property="og:description" content="上一篇把 Hexo 的发布方式改成了：源码统一放在私有的 blog-source，GitHub Actions 负责生成网页，再自动更新 guohuahu.github.io。这样以后，电脑、手机或者 ChatGPT 都可以作为博客的编辑入口。 新的问题也随之出现了。以前博客源码只在自己的电脑上，本地就是唯一版本；现在 ChatGPT 也可能直接修改 GitHub 上的源码，手机端以后也可能这么做">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2026-10-01T19:36:01.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guohua Hu">
-<meta name="twitter:description" content="technology, academic &amp; interests">
+<meta name="twitter:title" content="GitHub+Hexo(9)-双入口博客的本地安全同步">
+<meta name="twitter:description" content="上一篇把 Hexo 的发布方式改成了：源码统一放在私有的 blog-source，GitHub Actions 负责生成网页，再自动更新 guohuahu.github.io。这样以后，电脑、手机或者 ChatGPT 都可以作为博客的编辑入口。 新的问题也随之出现了。以前博客源码只在自己的电脑上，本地就是唯一版本；现在 ChatGPT 也可能直接修改 GitHub 上的源码，手机端以后也可能这么做">
 
 
 
@@ -118,7 +120,7 @@
 
   
   
-  <link rel="canonical" href="http://huguohua.cn/archives/2019/06/">
+  <link rel="canonical" href="http://huguohua.cn/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/">
 
 
 
@@ -128,7 +130,7 @@
   };
 </script>
 
-  <title>归档 | Guohua Hu</title>
+  <title>GitHub+Hexo(9)-双入口博客的本地安全同步 | Guohua Hu</title>
   
 
 
@@ -181,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -325,7 +327,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -447,438 +449,291 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huguohua.cn/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guohua Hu">
+      <meta itemprop="description" content="technology, academic & interests">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guohua Hu">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">GitHub+Hexo(9)-双入口博客的本地安全同步
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2026-10-02 03:34:00" itemprop="dateCreated datePublished" datetime="2026-10-02T03:34:00+00:00">2026-10-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2026-10-01 19:36:01" itemprop="dateModified" datetime="2026-10-01T19:36:01+00:00">2026-10-01</time>
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 26 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/26/地学常用期刊整理/" itemprop="url">
+          
             
-              <span itemprop="name">地学常用期刊整理</span>
             
-          </a>
-        
-      </h2>
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-26T02:44:38+00:00" content="2019-06-26">
-          06-26
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(1)-网站搭建与优化/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(1)-如何搭建和优化一个网站</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:10+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(2)-给网站添加搜索功能/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(2)-给网站添加站内搜索功能</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:09+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <h2 id="为什么不能直接pull"><a href="#为什么不能直接pull" class="headerlink" title="为什么不能直接pull"></a>为什么不能直接pull</h2><p>最常见的做法大概是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line"><span class="comment"># 修改文章</span></span><br><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
-        
-        
-        
+<p>如果远程只是正常多了一篇文章，这样没有问题。但现在远程仓库已经不只由本地电脑修改。比如我可以直接让 ChatGPT 在 GitHub 上新增文章、改配置，GitHub Actions 也会根据这些源码继续发布。下一次打开本地仓库的时候，本地和远程出现差异已经是正常情况，而不是异常情况。</p>
+<p>问题在于，<code>pull</code> 会直接影响当前工作区。假如远程因为误操作删掉了大量文章，或者某次提交把整个 <code>source/</code> 弄坏了，本地一上来就 pull，相当于把最后一份正常副本也跟着改掉。Git 虽然有历史可以恢复，但真到了出问题的时候，再去翻 reflog、找 commit，还是比较麻烦。</p>
+<p>所以我给本地增加了一层比较保守的同步流程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">本地准备 push</span><br><span class="line">    ↓</span><br><span class="line">先备份 source/</span><br><span class="line">    ↓</span><br><span class="line">git fetch，只看远程，不改本地</span><br><span class="line">    ↓</span><br><span class="line">检查远程 source/ 改了什么</span><br><span class="line">    ↓</span><br><span class="line">正常 → 合并远程变化</span><br><span class="line">异常 → 停止</span><br><span class="line">    ↓</span><br><span class="line">普通 git push</span><br></pre></td></tr></table></figure>
 
-        
-        
+<h2 id="先给source留一份副本"><a href="#先给source留一份副本" class="headerlink" title="先给source留一份副本"></a>先给source留一份副本</h2><p>每次同步以前，先把整个 <code>source/</code> 复制到 Git 仓库之外，而且包括还没有加入 Git 的文件。备份目录按时间保存，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">../.hexo-source-backups/Blog/20261002-032500/source/</span><br></pre></td></tr></table></figure>
 
-        
+<p>这样做有点笨，但是很有用。Markdown 本身并不大，几十篇文章和一些页面占不了多少空间，完全没有必要为了省这一点空间承担风险。即使后面的 Git 操作真的出了问题，至少文章原文件还在。</p>
+<p>这里特意把备份放到仓库外面，也是为了避免备份文件自己又被 Git 跟踪，最后跟着源码一起上传。</p>
+<h2 id="fetch以后先看看远程发生了什么"><a href="#fetch以后先看看远程发生了什么" class="headerlink" title="fetch以后先看看远程发生了什么"></a>fetch以后先看看远程发生了什么</h2><p>第二步也不是 <code>git pull</code>，而是先：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch --prune</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p><code>fetch</code> 只更新远程分支信息，不会改当前工作区。这样就可以先比较本地和远程共同祖先到远程最新版本之间，<code>source/</code> 到底发生了哪些变化。</p>
+<p>脚本会统计：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">新增了多少文件</span><br><span class="line">修改了多少文件</span><br><span class="line">删除了多少文件</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(3)-给网站添加评论功能/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(3)-给网站添加评论功能</span>
-            
-          </a>
-        
-      </h2>
+<p>如果只是 ChatGPT 在远程增加了一篇文章，或者改了少量 Markdown，就继续。如果发现远程的 <code>source/</code> 整个消失，或者删除数量明显异常，就直接停止，不往本地合并。</p>
+<p>我现在设的判断比较保守：远程一次删除至少 10 个文件，并且超过原有 <code>source/</code> 文件数的 30%，就认为值得人工检查。这个数字当然不是通用标准，只是给自己的博客加一道保险。真正重要的不是 10 或 30%，而是 pull 以前先判断“远程这次改动像不像正常编辑”。</p>
+<h2 id="本地和远程都有修改怎么办"><a href="#本地和远程都有修改怎么办" class="headerlink" title="本地和远程都有修改怎么办"></a>本地和远程都有修改怎么办</h2><p>检查通过以后，再根据两边的状态决定怎么同步。如果本地没有新提交，只是落后于远程，就使用 fast-forward；如果本地和远程都各自有新提交，就 rebase 到远程最新版本。假如 rebase 出现冲突，脚本会自动 abort，恢复到操作以前的状态，再让人自己处理。</p>
+<p>整个过程不使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br><span class="line">git clean</span><br><span class="line">git push --force</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:08+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
+<p>最后仍然只是普通的 <code>git push</code>。因为对于博客源码来说，我更愿意让同步失败，也不愿意为了“自动成功”去强行覆盖某一边。</p>
+<p>另外，如果本地已经有修改但还没有 commit，也不会继续自动同步。先把自己正在写的东西处理清楚，再碰远程版本，比较容易知道冲突到底来自哪里。</p>
+<h2 id="和自动发布接起来"><a href="#和自动发布接起来" class="headerlink" title="和自动发布接起来"></a>和自动发布接起来</h2><p>这样以后，博客大概有两条入口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">电脑本地</span><br><span class="line">   ↓</span><br><span class="line">source 备份</span><br><span class="line">   ↓</span><br><span class="line">fetch + 检查 + 同步</span><br><span class="line">   ↓</span><br><span class="line">blog-source</span><br><span class="line">   ↓</span><br><span class="line">GitHub Actions</span><br><span class="line">   ↓</span><br><span class="line">guohuahu.github.io</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<p>另一条则是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">手机 / ChatGPT</span><br><span class="line">      ↓</span><br><span class="line">blog-source</span><br><span class="line">      ↓</span><br><span class="line">GitHub Actions</span><br><span class="line">      ↓</span><br><span class="line">guohuahu.github.io</span><br></pre></td></tr></table></figure>
 
-
-
+<p>云端修改以后，本地下一次提交会先看到这些变化；本地修改以后，推送到源码仓库又会自动触发网站构建。这样两个入口可以同时存在，但都围绕同一个 <code>blog-source</code> 工作。</p>
+<p>以前本地电脑既保存源码，又负责生成和部署，所以很少考虑“远程版本会不会比本地新”。现在发布已经搬到云端，ChatGPT 也可以直接修改源码，这个问题反而必须认真处理。自动化越多，越不能简单地把所有命令连起来就算完成，最好给重要的数据留一个可以停下来的地方。</p>
+<p>对我来说，博客最重要的还是 <code>source/</code> 里面这些 Markdown。网页坏了可以重新生成，Actions 配错了可以再改，甚至整个 <code>guohuahu.github.io</code> 都可以重新部署，但是文章本身没必要跟着这些自动化一起冒险。先备份，再检查，再同步，虽然多了几步，反而更适合现在这种本地和云端都可能修改源码的方式。</p>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(4)-给网站添加相册/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(4)-添加相册功能（最简单的添加相册的方式）</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:07+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(5)-文章多分类与标签/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(5)-文章多分类与标签</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:06+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(6)-首页显示/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(6)-首页展示</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:05+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/23/GitHub+Hexo(7)-网站优化与加速/" itemprop="url">
-            
-              <span itemprop="name">GitHub+Hexo(7)-网站速度优化</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T00:00:04+00:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/22/Markdown(1)-排版/" itemprop="url">
-            
-              <span itemprop="name">Markdown(1)-Markdown排版</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-22T00:00:10+00:00" content="2019-06-22">
-          06-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/22/Markdown(2)-代码高亮/" itemprop="url">
-            
-              <span itemprop="name">Markdown(2)-代码高亮</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-22T00:00:09+00:00" content="2019-06-22">
-          06-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Guohua Hu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://huguohua.cn/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/" title="GitHub+Hexo(9)-双入口博客的本地安全同步">http://huguohua.cn/2026/10/02/GitHub+Hexo(9)-双入口博客的本地安全同步/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2026/10/02/GitHub+Hexo(8)-AI时代的Hexo博客新路径/" rel="next" title="GitHub+Hexo(8)-AI时代的Hexo博客新路径">
+                <i class="fa fa-chevron-left"></i> GitHub+Hexo(8)-AI时代的Hexo博客新路径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/06/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -898,8 +753,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1074,6 +938,23 @@
 	  
 		 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么不能直接pull"><span class="nav-number">1.</span> <span class="nav-text">为什么不能直接pull</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先给source留一份副本"><span class="nav-number">2.</span> <span class="nav-text">先给source留一份副本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch以后先看看远程发生了什么"><span class="nav-number">3.</span> <span class="nav-text">fetch以后先看看远程发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地和远程都有修改怎么办"><span class="nav-number">4.</span> <span class="nav-text">本地和远程都有修改怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和自动发布接起来"><span class="nav-number">5.</span> <span class="nav-text">和自动发布接起来</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1210,6 +1091,12 @@
 
 
   
+  <script type="text/javascript" src="/js/scrollspy.js?v=7.1.2"></script>
+<script type="text/javascript" src="/js/post-details.js?v=7.1.2"></script>
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v="></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+
 
   
 
@@ -1259,6 +1146,8 @@
 
 
 
+
+  
 
 
   
